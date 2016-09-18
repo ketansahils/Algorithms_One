@@ -16,7 +16,7 @@ class QuickFind(object):
 	def find(self,p):
 		return self.__array[p]
 
-	def count(self):
+	def connComps(self):
 		return len(set(self.__array))
 
 	def show(self):
@@ -41,7 +41,7 @@ if __name__ == '__main__':
 	print "9 --- 3 ",k.connected(9,3)
 
 	k.show()
-	print k.count()
+	print k.connComps()
 
 	# 0 --- 1  False
 	# 0 --- 3  False

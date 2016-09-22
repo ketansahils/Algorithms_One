@@ -7,19 +7,20 @@ class QuickUnion(object):
 		if self.__array[i] == i: return i
 		return self.root(self.__array[i])
 
-	def rootFlatten(self, p):
+	def rootFlatten(self, p, q):
 		while self.__array[p] != p:
 			temp = p
 			p = self.__array[p]
-			self.__array[temp] = self.root(p)
+			self.__array[temp] = q
 		return p
 
 	def connected(self,i,j):
 		return self.root(i) == self.root(j)
 
 	def union(self,i,j):
-		k = self.rootFlatten(i)
-		self.__array[k] = self.root(j)
+		l = self.root(j)
+		k = self.rootFlatten(i,l)
+		self.__array[k] = l
 
 	def connComps(self):
 		arrOfRoots = map(lambda x: self.root(x),self.__array)
@@ -55,5 +56,5 @@ if __name__ == '__main__':
 	# 7 --- 6  True
 	# 9 --- 3  True
 	# 0  1  2  3  4  5  6  7  8  9  
-	# 4  9  4  1  5  1  5  5  5  9
+	# 4  9  4  9  5  1  5  5  5  9
 	# 1

@@ -3,6 +3,7 @@ class QuickFindWeighted(object):
 		self.__N = N
 		self.__array = [_ for _ in range(N)]
 		self.__size = [1 for _ in range(N)]
+		self.__largest = [_ for _ in range(N)]
 
 	def root(self, p):
 		while self.__array[p] != p:
@@ -14,6 +15,11 @@ class QuickFindWeighted(object):
 		if not self.connected(p,q):
 			idp = self.root(p)
 			idq = self.root(q)
+			if self.__largest[idp] > self.__largest[idq]:
+				self.__largest[idq] = self.__largest[idp]
+			else:
+				self.__largest[idp] = self.__largest[idq]
+
 			if self.__size[idp] >= self.__size[idq]:
 				self.__size[idp] += self.__size[idq]
 				self.__array[idq] = idp
@@ -35,17 +41,25 @@ class QuickFindWeighted(object):
 		print ("{:<3}"*self.__N).format(*range(self.__N))
 		print ("{:<3}"*self.__N).format(*self.__array)
 
+	def largest(self,i):
+		return self.__largest[self.root(i)]
+
 
 if __name__ == '__main__':
 	k = QuickFindWeighted(10)
 	k.union(0,5)
 	k.union(5,6)
+	print k.largest(0)
 	k.union(1,2)
 	k.union(7,2)
+	print k.largest(1)
 	k.union(3,8)
 	k.union(4,3)
+	print k.largest(3)
 	k.union(9,3)
 	k.union(3,9)
+	print k.largest(3)
+
 
 	print "0 --- 1 ",k.connected(0,1)
 	print "0 --- 3 ",k.connected(0,3)
@@ -64,6 +78,7 @@ if __name__ == '__main__':
 	print "After joining",3,5
 	k.show()
 	print k.connComps()
+	print k.largest(0)
 
 	# 0 --- 1  False
 	# 0 --- 3  False

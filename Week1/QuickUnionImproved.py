@@ -9,17 +9,11 @@ class QuickFindWeighted(object):
 			p = self.__array[p]
 		return p
 
-	def rootFlatten(self, p):
-		while self.__array[p] != p:
-			temp = p
-			p = self.__array[p]
-			self.__array[temp] = self.root(p)
-		return p
 
 	def union(self, p, q):
 		if not self.connected(p,q):
-			idp = self.rootFlatten(p)
-			idq = self.rootFlatten(q)
+			idp = self.root(p)
+			idq = self.root(q)
 			if self.__size[idp] >= self.__size[idq]:
 				self.__size[idp] += self.__size[idq]
 				self.__array[idq] = idp

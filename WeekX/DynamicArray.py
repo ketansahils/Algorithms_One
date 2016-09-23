@@ -37,5 +37,6 @@ if __name__ == '__main__':
 	for item in range(10):
 		k.append(item)
 		print k[item]	# Prints items in seq 0,1,2....9
-	print k[-1]			# Error
-	print k[100]		# Won't print
+	#print k[-1]			# Error
+	#print k[100]		# Won't print
+	print len(k)		# 10

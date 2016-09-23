@@ -1,27 +1,27 @@
 class QuickFind(object):
 	def __init__(self,N):
-		self.__N = N
-		self.__array = [_ for _ in range(N)]
+		self._N = N
+		self._array = [_ for _ in range(N)]
 
 	def union(self,p,q):
 		if self.connected(p,q): return
-		pval = self.__array[p]
-		for i,j in enumerate(self.__array):
-			self.__array[i] = self.__array[q] \
-			if j == pval else self.__array[i]
+		pval = self._array[p]
+		for i,j in enumerate(self._array):
+			self._array[i] = self._array[q] \
+			if j == pval else self._array[i]
 
 	def connected(self,p,q):
-		return self.__array[p] == self.__array[q]
+		return self._array[p] == self._array[q]
 
 	def find(self,p):
-		return self.__array[p]
+		return self._array[p]
 
 	def connComps(self):
-		return len(set(self.__array))
+		return len(set(self._array))
 
 	def show(self):
-		print ("{:<3}"*self.__N).format(*range(self.__N))
-		print ("{:<3}"*self.__N).format(*self.__array)
+		print ("{:<3}"*self._N).format(*range(self._N))
+		print ("{:<3}"*self._N).format(*self._array)
 
 
 if __name__ == '__main__':

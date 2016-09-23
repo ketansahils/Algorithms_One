@@ -1,13 +1,13 @@
 class QuickFindWeighted(object):
 	def __init__(self,N):
-		self.__N = N
-		self.__array = [_ for _ in range(N)]
-		self.__size = [1 for _ in range(N)]
-		self.__largest = [_ for _ in range(N)]
+		self._N = N
+		self._array = [_ for _ in range(N)]
+		self._size = [1 for _ in range(N)]
+		self._largest = [_ for _ in range(N)]
 
 	def root(self, p):
-		while self.__array[p] != p:
-			p = self.__array[p]
+		while self._array[p] != p:
+			p = self._array[p]
 		return p
 
 
@@ -15,34 +15,34 @@ class QuickFindWeighted(object):
 		if not self.connected(p,q):
 			idp = self.root(p)
 			idq = self.root(q)
-			if self.__largest[idp] > self.__largest[idq]:
-				self.__largest[idq] = self.__largest[idp]
+			if self._largest[idp] > self._largest[idq]:
+				self._largest[idq] = self._largest[idp]
 			else:
-				self.__largest[idp] = self.__largest[idq]
+				self._largest[idp] = self._largest[idq]
 
-			if self.__size[idp] >= self.__size[idq]:
-				self.__size[idp] += self.__size[idq]
-				self.__array[idq] = idp
+			if self._size[idp] >= self._size[idq]:
+				self._size[idp] += self._size[idq]
+				self._array[idq] = idp
 			else:
-				self.__size[idq] += self.__size[idp]
-				self.__array[idp] = idq
+				self._size[idq] += self._size[idp]
+				self._array[idp] = idq
 
 	def find(self, p):
-		return self.__array[p]
+		return self._array[p]
 
 	def connected(self, p, q):
 		return self.root(p) == self.root(q)
 
 	def connComps(self):
-		arrOfRoots = map(lambda x: self.root(x),self.__array)
+		arrOfRoots = map(lambda x: self.root(x),self._array)
 		return len(set(arrOfRoots))
 
 	def show(self):
-		print ("{:<3}"*self.__N).format(*range(self.__N))
-		print ("{:<3}"*self.__N).format(*self.__array)
+		print ("{:<3}"*self._N).format(*range(self._N))
+		print ("{:<3}"*self._N).format(*self._array)
 
 	def largest(self,i):
-		return self.__largest[self.root(i)]
+		return self._largest[self.root(i)]
 
 
 if __name__ == '__main__':

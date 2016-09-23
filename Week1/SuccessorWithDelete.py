@@ -1,29 +1,29 @@
 class SuccessorWithDelete(object):
 	def __init__(self,N):
-		self.__N = N
-		self.__suc = [i+1 for i in range(N)]
-		self.__suc[N-1] = N-1
-		self.__pred = [i-1 for i in range(N)]
-		self.__pred[0] = 0
+		self._N = N
+		self._suc = [i+1 for i in range(N)]
+		self._suc[N-1] = N-1
+		self._pred = [i-1 for i in range(N)]
+		self._pred[0] = 0
 
 	def remove(self,x):
-		px = self.__pred[x]
-		sx = self.__suc[x]
+		px = self._pred[x]
+		sx = self._suc[x]
 		if sx == x:
-			self.__suc[px] = px
+			self._suc[px] = px
 		elif px == x:
-			self.__pred[sx] = sx
+			self._pred[sx] = sx
 		else:
-			self.__suc[px] = sx
-			self.__pred[sx] = px
-		self.__pred[x] = None
-		self.__suc[x] = None
+			self._suc[px] = sx
+			self._pred[sx] = px
+		self._pred[x] = None
+		self._suc[x] = None
 
 	def successor(self,x):
-		return self.__suc[x]
+		return self._suc[x]
 
 	def predecessor(self,x):
-		return self.__pred[x]
+		return self._pred[x]
 
 
 if __name__ == '__main__':

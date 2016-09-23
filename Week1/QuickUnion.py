@@ -1,17 +1,17 @@
 class QuickUnion(object):
 	def __init__(self,N):
-		self.__N = N
-		self.__array = [_ for _ in range(N)]
+		self._N = N
+		self._array = [_ for _ in range(N)]
 
 	def root(self,i):
-		if self.__array[i] == i: return i
-		return self.root(self.__array[i])
+		if self._array[i] == i: return i
+		return self.root(self._array[i])
 
 	def rootFlatten(self, p, q):
-		while self.__array[p] != p:
+		while self._array[p] != p:
 			temp = p
-			p = self.__array[p]
-			self.__array[temp] = q
+			p = self._array[p]
+			self._array[temp] = q
 		return p
 
 	def connected(self,i,j):
@@ -20,15 +20,15 @@ class QuickUnion(object):
 	def union(self,i,j):
 		l = self.root(j)
 		k = self.rootFlatten(i,l)
-		self.__array[k] = l
+		self._array[k] = l
 
 	def connComps(self):
-		arrOfRoots = map(lambda x: self.root(x),self.__array)
+		arrOfRoots = map(lambda x: self.root(x),self._array)
 		return len(set(arrOfRoots))
 
 	def show(self):
-		print ("{:<3}"*self.__N).format(*range(self.__N))
-		print ("{:<3}"*self.__N).format(*self.__array)
+		print ("{:<3}"*self._N).format(*range(self._N))
+		print ("{:<3}"*self._N).format(*self._array)
 
 
 if __name__ == '__main__':

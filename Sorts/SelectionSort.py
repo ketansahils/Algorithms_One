@@ -1,4 +1,4 @@
-class Selection(object):
+class SelectionSort(object):
 	def __init__(self,array):
 		self._array = array
 
@@ -15,5 +15,5 @@ class Selection(object):
 
 if __name__ == '__main__':
 	arr = [3,4,5,3,3,-2,2,33,5,6,7,8,-8,55]
-	k = Selection(arr)
+	k = SelectionSort(arr)
 	print k.sort()

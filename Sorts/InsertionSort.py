@@ -15,6 +15,6 @@ class InsertionSort(object):
 
 
 if __name__ == '__main__':
-	arr = [3,4,5,3,3,-2,2,33,5,6,7,8,-8,55]
+	arr = [1,2,3,4,5,6,7,8,7,6,5,4,3,2,1]
 	k = InsertionSort(arr)
 	print k.sort()

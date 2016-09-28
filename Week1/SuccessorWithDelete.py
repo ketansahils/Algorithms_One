@@ -36,3 +36,9 @@ if __name__ == '__main__':
 	print k.successor(1), k.predecessor(1)
 	print k.successor(2), k.predecessor(2)
 
+# Sample Output
+
+# 3 0
+# 2 0
+# None None
+# 3 2

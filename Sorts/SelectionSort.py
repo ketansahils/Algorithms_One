@@ -17,3 +17,7 @@ if __name__ == '__main__':
 	arr = [3,4,5,3,3,-2,2,33,5,6,7,8,-8,55]
 	k = SelectionSort(arr)
 	print k.sort()
+
+
+# Sample Output
+# [-8, -2, 2, 3, 3, 3, 4, 5, 5, 6, 7, 8, 33, 55]

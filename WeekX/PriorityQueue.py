@@ -32,3 +32,15 @@ if __name__ == '__main__':
 	while not k.isEmpty():
 		print k.delMax()
 
+# Sample Output
+
+# 343
+# 7
+# 6
+# 5
+# 5
+# 4
+# 3
+# 2
+# 2
+

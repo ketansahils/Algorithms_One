@@ -46,3 +46,15 @@ if __name__ == '__main__':
 		k.insert(i)
 	for i in range(10):
 		print k.delMax()
+
+# Sample Output
+# 9
+# 8
+# 7
+# 6
+# 5
+# 4
+# 3
+# 2
+# 1
+# 0

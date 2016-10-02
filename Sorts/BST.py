@@ -6,6 +6,9 @@ from WeekX.Queue import Queue
 class BST(object):
 	
 	def __init__(self,key,value):
+		if key == None and value == None:
+			self._root = None
+			return
 		self._root = NodeBST(key,value)
 
 	def delMin(self):
@@ -109,22 +112,24 @@ class BST(object):
 		return None
 
 	def put(self,key,value):
-		return self._putx(self._root,key,value)
+		self._root = self._putx(self._root,key,value)
 
 	def _putx(self,node,key,value):
 		if node == None:
 			node = NodeBST(key,value)
 
-		elif node._key == key:
-			node._val = value
+		else:
+			if node._key == key:
+				node._val = value
 
-		if node._key > key:
-			node._left = self._putx(node._left,key,value)
+			elif node._key > key:
+				node._left = self._putx(node._left,key,value)
 
-		if node._key < key:
-			node._right = self._putx(node._right,key,value)
+			# node._key < key:
+			else:
+				node._right = self._putx(node._right,key,value)
 
-		node._count = 1 + self.size(node._left) + self.size(node._right)
+			node._count = 1 + self.size(node._left) + self.size(node._right)
 		return node
 
 
@@ -139,3 +144,9 @@ if __name__ == '__main__':
 	k.inorder()
 	k.delete(7)
 	k.inorder()
+	m = BST(None,None)
+	for item in l:
+		m.put(item,10*item)
+	m.inorder()
+	m.delete(7)
+	m.inorder()

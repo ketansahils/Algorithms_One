@@ -9,6 +9,7 @@ class NodeBST(Node):
 		self._left = None
 		self._right = None
 		self._key = key
+		self._count = 1
 
 
 if __name__ == '__main__':

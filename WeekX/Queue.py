@@ -3,6 +3,10 @@ from Node import Node
 class Queue(object):
 
 	def __init__(self,val):
+		if not val:
+			self._first = None
+			self._last = None
+			return
 		self._first = Node(val,None)
 		self._last = self._first
 
@@ -10,6 +14,8 @@ class Queue(object):
 		return self._first == None
 
 	def enqueue(self,val):
+		if val == None:
+			return
 		last = self._last
 		latest = Node(val,None)
 		self._last = latest
@@ -27,11 +33,13 @@ class Queue(object):
 			return oldFirst
 
 	def show(self):
+		arr = []
 		i = self._first
 		while i:
-			print i._val,
+			arr.append(i._val)
 			i = i._next
-		print
+		print " ".join(arr)
+		return arr
 
 
 if __name__ == '__main__':

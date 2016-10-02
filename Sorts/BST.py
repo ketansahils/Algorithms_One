@@ -9,7 +9,7 @@ class BST(object):
 		self._root = NodeBST(key,value)
 
 	def delMin(self):
-		return self._delMin(node._root)
+		self._root = self._delMin(node._root)
 
 	def _delMin(self,node):
 		if node._left == None:
@@ -18,13 +18,44 @@ class BST(object):
 		node._count = 1 + self.size(node._left) + self.size(node._right)
 		return node
 
-	#def delete(self,node):
+	def minNode(self,node):
+		if node == None:
+			return None
+		while node._left != None:
+			node = node._left
+		return node
 
+	def delete(self,key):
+		self._root = self._delete(self._root,key)
+
+	def _delete(self,node,key):
+		if node == None:
+			return None
+		if node._key > key:
+			node._left = self._delete(node._left,key)
+		elif node._key < key:
+			node._right = self._delete(node._right,key)
+		else: 
+			if node._left == None:
+				return node._right
+			if node._right == None:
+				return node._left
+
+			t = node
+			node = self.minNode(t._right)
+			node._right = self._delMin(t._right)
+			node._left = t._left
+
+		node._count = 1 + self.size(node._left) + self.size(node._right)
+		return node
 
 	def inorder(self):
 		q = Queue(None)
 		self._inorder(self._root,q)
-		q.show()
+		while not q.isEmpty():
+			k = q.dequeue()
+			print k._val._key, k._val._val, k._val._count
+		print
 
 	def _inorder(self,node,q):
 		if node == None:
@@ -95,3 +126,16 @@ class BST(object):
 
 		node._count = 1 + self.size(node._left) + self.size(node._right)
 		return node
+
+
+if __name__ == '__main__':
+	import random
+	l = range(0,10)
+	random.shuffle(l)
+	print l
+	k = BST(l[0],l[0]*10)
+	for item in l[1:]:
+		k.put(item,10*item)
+	k.inorder()
+	k.delete(7)
+	k.inorder()

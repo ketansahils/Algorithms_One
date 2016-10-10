@@ -56,7 +56,7 @@ class DepthFirstSearch(object):
 		self._visited = [False] * self._graph._V
 		self._edge = [_ for _ in range(self._graph._V)]
 		self._source = source
-		self._marked = False
+		#self._marked = False
 
 	def _dfs(self,vertex):
 		self._visited[vertex] = True
@@ -67,13 +67,13 @@ class DepthFirstSearch(object):
 
 	def dfPaths(self):
 		self._dfs(self._source)
-		self._marked = True
+		#self._marked = True
 		return self._edge
 
 	def hasPathTo(self,vertex):
-		if not self._marked:
-			print "Run DFS first. Tip: Instance Method dfPaths()."
-			return
+		#if not self._marked:
+		#	print "Run DFS first. Tip: Instance Method dfPaths()."
+		#	return
 		return self._visited[vertex]
 
 	def pathTo(self,vertex):

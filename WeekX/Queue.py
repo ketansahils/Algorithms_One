@@ -3,7 +3,7 @@ from Node import Node
 class Queue(object):
 
 	def __init__(self,val):
-		if not val:
+		if val == None:
 			self._first = None
 			self._last = None
 			return
@@ -38,7 +38,7 @@ class Queue(object):
 		while i:
 			arr.append(i._val)
 			i = i._next
-		print " ".join(arr)
+		#print " ".join(arr)
 		return arr
 
 
@@ -50,7 +50,7 @@ if __name__ == '__main__':
 			q.dequeue()
 		else:
 			q.enqueue(item)
-		q.show()
+		print ' '.join(q.show())
 
 # ketan to
 # ketan to be

@@ -15,6 +15,14 @@ class Digraph(object):
 	def adjVertices(self,v):
 		return self._adj[v].traverse()
 
+	def reverse(self):
+		revAdj = Digraph(self._V)
+		for i in range(self._V):
+			for v in self.adjVertices(i):
+				revAdj.addEdge(v,i)
+		return revAdj
+
+
 class BreadthFirstSearch(object):
 	def __init__(self,digraph,source):
 		self._digraph = digraph

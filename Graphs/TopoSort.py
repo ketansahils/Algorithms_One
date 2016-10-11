@@ -9,22 +9,22 @@ class TopoSort(object):
 		self._stack = Stack(None)
 		self._marked = [False] * self._dag._V
 		self._edgeTo = [None] * self._dag._V
-		self.postorder()
+		self.postOrder(self._dag)
 
-	def postorder(self):
-		for v in range(self._dag._V):
+	def postOrder(self,dag):
+		for v in range(dag._V):
 			if not self._marked[v]:
 				self._marked[v] = True
 				self._edgeTo[v] = v
-				self._postorder(v)
+				self._postOrder(dag,v)
 				self._stack.push(v)
 
-	def _postorder(self,vertex):
-		for v in self._dag.adjVertices(vertex):
+	def _postOrder(self,dag,vertex):
+		for v in dag.adjVertices(vertex):
 			if not self._marked[v]:
 				self._marked[v] = True
 				self._edgeTo[v] = vertex
-				self._postorder(v)
+				self._postOrder(dag,v)
 				self._stack.push(v)
 
 	def topoSorted(self):

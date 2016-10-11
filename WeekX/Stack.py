@@ -32,10 +32,10 @@ class Stack(object):
 		n = self._first
 		arr = [None]*self._size
 		for i in range(self._size):
-			print n._val,
+			#print n._val,
 			arr[i] = n._val
 			n = n._next
-		print
+		#print
 		return arr
 
 

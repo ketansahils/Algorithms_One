@@ -39,16 +39,16 @@ if __name__ == '__main__':
 	k = WEdge(1,2,15)
 	l = WEdge(1,2,25)
 
-	print "Should be False:", 
+	print "False:", 
 	print(k == l)
-	print "Should be True:", 
+	print "True:", 
 	print(k < l)
-	print "Should be False:", 
+	print "False:", 
 	print(k > l)
-	print "Should be True:", 
+	print "True:", 
 	print(k <= l)
-	print "Should be False:", 
+	print "False:", 
 	print(k >= l)
 
-	print "Should be True:",
+	print "True:",
 	print(k < 100)

@@ -15,8 +15,10 @@ class PriorityQueue(object):
 			if self._array[i] > self._array[xmax]:
 				xmax = i
 		self.exch(xmax,self._N-1,self._array)
+		k = self._array[self._N-1]
+		del self._array[self._N-1]
 		self._N -= 1
-		return self._array[self._N]
+		return k
 
 	def isEmpty(self):
 		return self._N == 0

@@ -15,8 +15,10 @@ class MinPQ(object):
 			if self._array[i] < self._array[xmin]:
 				xmin = i
 		self.exch(xmin,self._N-1,self._array)
+		k = self._array[self._N-1]
+		del self._array[self._N-1]
 		self._N -= 1
-		return self._array[self._N]
+		return k
 
 	def isEmpty(self):
 		return self._N == 0

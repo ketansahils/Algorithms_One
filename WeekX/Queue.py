@@ -2,13 +2,15 @@ from Node import Node
 
 class Queue(object):
 
-	def __init__(self,val):
+	def __init__(self,val=None):
 		if val == None:
 			self._first = None
 			self._last = None
+			self._size = 0
 			return
 		self._first = Node(val,None)
 		self._last = self._first
+		self._size = 1
 
 	def isEmpty(self):
 		return self._first == None
@@ -23,6 +25,7 @@ class Queue(object):
 			self._first = self._last
 		else:
 			last._next = latest
+		self._size += 1
 
 	def dequeue(self):
 		if not self.isEmpty():
@@ -30,6 +33,7 @@ class Queue(object):
 			self._first = oldFirst._next
 			if self.isEmpty():
 				self._last = self._first
+			self._size -= 1
 			return oldFirst
 
 	def show(self):
@@ -51,6 +55,7 @@ if __name__ == '__main__':
 		else:
 			q.enqueue(item)
 		print ' '.join(q.show())
+	print Queue()
 
 # ketan to
 # ketan to be

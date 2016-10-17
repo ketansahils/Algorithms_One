@@ -1,6 +1,7 @@
 import sys, os
 sys.path.insert(0, os.path.abspath('..'))
 from WeekX.LinkedList import LinkedList
+from WDEdge import WDEdge
 
 class EdgeWeightedDigraph(object):
 	def __init__(self,V):
@@ -20,3 +21,6 @@ class EdgeWeightedDigraph(object):
 
 	def edges(self):
 		return self._edges
+
+	def addEdgeBreak(self,to,From,weight):
+		self.addEdge(WDEdge(to,From,weight))

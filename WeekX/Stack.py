@@ -2,7 +2,7 @@ from Node import Node
 
 class Stack(object):
 
-	def __init__(self,val):
+	def __init__(self,val=None):
 		if val == None:
 			self._first = None
 			self._size = 0

@@ -12,7 +12,7 @@ class TopoSortWDAG(object):
 
 	def topoSort(self):
 		for vertex, edges in enumerate(self._EDAG._adj):
-			print vertex
+			#print vertex
 			if not self._marked[vertex]:
 				self._marked[vertex] = True
 				self._topoSort(vertex)

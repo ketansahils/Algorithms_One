@@ -6,6 +6,11 @@ class IndexMinPQ(object):
 		self._pq = [None] * (self._N+1)
 		self._qp = [None] * (self._N+1)
 
+	def show(self):
+		print "Keys:",self._keys
+		print "pq:",self._pq
+		print "qp:",self._qp
+
 	def findKey(self,index,key):
 		return self._keys[index]
 
@@ -15,10 +20,10 @@ class IndexMinPQ(object):
 		self._sink(self._qp[index])
 
 	def decreaseKey(self,index,key):
-		#print "Index:",index,"Key:",key
-		#print "Keys:",self._keys
-		#print "QP:",self._qp
-		#print "PQ:",self._pq
+		# print "Index:",index,"Key:",key
+		# print "Keys:",self._keys
+		# print "QP:",self._qp
+		# print "PQ:",self._pq
 		self._keys[index] = key
 		self._swim(self._qp[index])
 
@@ -30,6 +35,7 @@ class IndexMinPQ(object):
 
 		self._pq[self._n+1] = None
 		self._qp[Min] = None
+		self._keys[Min] = None
 		return Min
 
 	def insert(self,i,key):

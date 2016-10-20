@@ -65,3 +65,5 @@ if __name__ == '__main__':
 	print d._disTo
 	print map(lambda x: x.From() if x is not None else x,d._edgeTo)
 
+# [0, 5, 14, 17, 9, 13, 25, 8]
+# [None, 0, 5, 2, 0, 4, 2, 0]

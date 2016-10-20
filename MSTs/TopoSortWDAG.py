@@ -50,4 +50,7 @@ if __name__ == '__main__':
 	dag.addEdge(WDEdge(7,5,6))
 	dag.addEdge(WDEdge(7,2,7))
 	top = TopoSortWDAG(dag)
-	print top.topoSorted()
+	from pprint import pprint
+	pprint(top.topoSorted())
+
+# [0, 4, 1, 7, 5, 2, 3, 6]

@@ -52,3 +52,10 @@ if __name__ == '__main__':
 
 	print "True:",
 	print(k < 100)
+
+# False: False
+# True: True
+# False: False
+# True: True
+# False: False
+# True: True

@@ -68,5 +68,14 @@ if __name__ == '__main__':
 	a.addEdge(WEdge(2,3,0.17))
 	a.addEdge(WEdge(0,7,0.16))
 
+	from pprint import pprint
 	P = PrimsLazy(a)
-	print P.edges()
+	pprint(P.edges())
+
+# [(0, 7, 0.16),
+#  (1, 7, 0.19),
+#  (0, 2, 0.26),
+#  (2, 3, 0.17),
+#  (5, 7, 0.28),
+#  (4, 5, 0.35),
+#  (6, 2, 0.4)]
